@@ -42,3 +42,4 @@ function escapeHtml(string) {
   return String(string).replace(/_________/g, function (s) {
     return ____________;
   });
+}
