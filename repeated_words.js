@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function generateOutput(contents) {
-  return contents.replace(/____________________/__,'__________________________________');
+  return contents.replace(/\b([a-zA-Z_]\w*)(\s+)\1\b/g,"$1$2");
 }
 
 function calculate(evt) {
@@ -39,7 +39,7 @@ var entityMap = {
   };
 
 function escapeHtml(string) {
-  return String(string).replace(/_________/g, function (s) {
-    return ____________;
+  return String(string).replace(/[&<>"'\/]]/g, function (s) {
+    return entityMap[s];
   });
 }
